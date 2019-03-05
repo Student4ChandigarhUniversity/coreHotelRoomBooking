@@ -1,0 +1,44 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.HotelType
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3> Are you sure You want to delete this ?</h3>
+<br /><br />
+<table class="table">
+    <thead class="thead-light" >
+        <tr>
+            <th>
+                Hotel Type Id
+            </th>
+            <th>
+                Hotel Type Name
+            </th>
+            <th>
+                Hotel Type Description
+            </th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.HotelTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HotelTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HotelTypeDescription)
+        </td>
+    </tr>    
+</table>
+
+@using (Html.BeginForm("Delete", "HType", FormMethod.Post))
+{
+<p>
+    <input class="btn btn-primary" type="submit" value="Delete" />
+    <br />
+    <br />
+    <a asp-controller="HType" asp-action="Index"class="btn btn-primary">Back to List</a>
+</p>
+}

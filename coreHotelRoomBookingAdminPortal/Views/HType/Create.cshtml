@@ -1,0 +1,21 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.HotelType
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<form asp-action="Create" asp-controller="HType">
+    <div class="form-group">
+        <label for="HotelTypeName">Hotel Type Name</label>
+        <input type="text" asp-for="HotelTypeName" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Name" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelTypeDescription">Hotel Type Description</label>
+        <input type="text" asp-for="HotelTypeDescription" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Description" required autofocus>
+    </div>
+    <button class="btn btn-info" type="submit">Submit</button>
+    <br />
+    <br />
+    <a asp-controller="HType" asp-action="Index" class="btn btn-primary">Back to List</a>
+</form>

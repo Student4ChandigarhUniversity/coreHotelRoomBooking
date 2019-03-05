@@ -1,0 +1,68 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.HotelRoom
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3> Are you sure You want to delete this ?</h3>
+<br /><br />
+<table class="table table-hover table table-bordered">
+    <tr>
+        <th>
+            Room Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomId)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Type
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomType)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Price
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomPrice)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Description
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomDescription)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Image
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomImage)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelId)
+        </td>
+    </tr>
+</table>
+
+@using (Html.BeginForm("Delete", "HotelRoom", FormMethod.Post))
+{
+<p>
+    <input class="btn btn-primary" type="submit" value="Delete" />
+    <br />
+    <br />
+    <a asp-controller="HotelRoom" asp-action="Index" class="btn btn-primary">Back to List</a>
+</p>
+}

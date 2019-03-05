@@ -1,0 +1,84 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.RoomFacility
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3> Are you sure You want to delete this ?</h3>
+<br /><br />
+<table class="table table-hover table table-bordered">
+    <tr>
+        <th>
+            Room Facility Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomFacilityId)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Is Avilable
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.IsAvilable)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Wifi
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Wifi)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Air Conditioner
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.AirConditioner)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Ekettle
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Ekettle)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Refrigerator
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Refrigerator)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Facility Description
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomFacilityDescription)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Room Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.RoomId)
+        </td>
+    </tr>
+</table>
+
+@using (Html.BeginForm("Delete", "RoomFacility", FormMethod.Post))
+{
+<p>
+    <input class="btn btn-primary" type="submit" value="Delete" />
+    <br />
+    <br />
+    <a asp-controller="RoomFacility" asp-action="Index" class="btn btn-primary">Back to List</a>
+</p>
+}

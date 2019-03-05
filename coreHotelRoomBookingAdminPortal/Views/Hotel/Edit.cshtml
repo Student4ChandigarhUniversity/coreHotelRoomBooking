@@ -1,0 +1,72 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.Hotel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<form asp-action="Edit" asp-controller="Hotel">
+    <div class="form-group">
+        <label for="HotelName">Hotel Name</label>
+        <input type="text" asp-for="HotelName" class="form-control" placeholder="Enter Hotel Name" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelAddress">Hotel Address</label>
+        <input type="text" asp-for="HotelAddress" class="form-control" placeholder="Enter Hotel Address" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelDistrict">Hotel District</label>
+        <input type="text" asp-for="HotelDistrict" class="form-control" placeholder="Enter Hotel District" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelCity">Hotel City</label>
+        <input type="text" asp-for="HotelCity" class="form-control" placeholder="Enter Hotel City" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelState">Hotel State</label>
+        <input type="text" asp-for="HotelState" class="form-control" placeholder="Enter Hotel State" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelCountry">Hotel Country</label>
+        <input type="text" asp-for="HotelCountry" class="form-control" placeholder="Enter Hotel Country" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelEmailId">Hotel Email Id</label>
+        <input type="text" asp-for="HotelEmailId" class="form-control" placeholder="Enter Hotel Email Id" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelRating">Hotel Rating</label>
+        <input type="text" asp-for="HotelRating" class="form-control" placeholder="Enter Hotel Rating" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelContactNumber">Hotel Contact Number</label>
+        <input type="text" asp-for="HotelContactNumber" class="form-control" placeholder="Enter Hotel Contact Number" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelImage">Hotel Image</label>
+        <input type="text" asp-for="HotelImage" class="form-control" placeholder="Enter Hotel Image" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="HotelDescription">Hotel Description</label>
+        <input type="text" asp-for="HotelDescription" class="form-control" placeholder="Enter Hotel Description" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="HotelTypeId">Hotel Type Id</label>
+        <select asp-for="HotelTypeId" asp-items="ViewBag.hotelType" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info" type="submit">Edit</button>
+        <br />
+        <br />
+        <a asp-controller="Hotel" asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</form>

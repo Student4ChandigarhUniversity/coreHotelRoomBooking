@@ -1,0 +1,110 @@
+﻿@model coreHotelRoomBookingAdminPortal.Models.Hotel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hotel Details</h2>
+<br />
+<table class="table table-hover table table-bordered">
+    <tr>
+        <th>
+            Hotel Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelId)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Name
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelName)
+        </td>
+    </tr>
+    <tr>
+
+        <th>
+            Hotel Address
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelAddress)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel District
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelDistrict)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel City
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelCity)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel State
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelState)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Country
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelCountry)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Email Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelEmailId)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Rating
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelRating)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Contact Number
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelContactNumber)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Image
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelImage)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Description
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.HotelDescription)
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<a asp-controller="Hotel" asp-action="Index" class="btn btn-primary">Back to List</a>
