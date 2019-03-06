@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h3>Booking Page</h3>
+
+<table class="table table-hover">
+    <tr>
+        <th>Options</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    @foreach (var item in ViewBag.booking)
+    {
+        <tr>
+            <td><a asp-controller="Booking" asp-action="Remove" asp-route-id="@item.HotelRooms.RoomId" />Remove</td>
+
+            <td>@item.HotelRooms.RoomId</td>
+            <td>@item.HotelRooms.RoomType</td>
+
+            <td><img src="@item.HotelRooms.RoomImage" width="60"/> </td>
+
+            <td>@item.HotelRooms.RoomPrice</td>
+            <td>@item.Quantity</td>
+            <td>@(item.HotelRooms.RoomPrice * item.Quantity)</td>
+        </tr>
+    }
+    <tr>
+        <td align = "right" colspan= "6">Sum</td>
+        <td>
+            @ViewBag.total
+        </td>    
+    </tr>
+</table>
+
+<br />
+<a asp-controller="HotelRooms" asp-action="Index">Continue Shopping</a>
+<a asp-controller="Booking" asp-action="Index">Booking</a>

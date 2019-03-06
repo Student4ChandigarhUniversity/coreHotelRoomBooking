@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coreHotelRoomBookingAdminPortal", "coreHotelRoomBookingAdminPortal\coreHotelRoomBookingAdminPortal.csproj", "{14A741DB-C6A1-4964-87B4-C078F45BB405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreHotelRoomBookingAdminPortal", "coreHotelRoomBookingAdminPortal\coreHotelRoomBookingAdminPortal.csproj", "{14A741DB-C6A1-4964-87B4-C078F45BB405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coreHotelRoomBookingUserPanel", "coreHotelRoomBookingUserPanel\coreHotelRoomBookingUserPanel.csproj", "{48D70404-53D9-4472-85C9-5754D08587FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{14A741DB-C6A1-4964-87B4-C078F45BB405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A741DB-C6A1-4964-87B4-C078F45BB405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14A741DB-C6A1-4964-87B4-C078F45BB405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D70404-53D9-4472-85C9-5754D08587FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D70404-53D9-4472-85C9-5754D08587FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D70404-53D9-4472-85C9-5754D08587FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D70404-53D9-4472-85C9-5754D08587FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

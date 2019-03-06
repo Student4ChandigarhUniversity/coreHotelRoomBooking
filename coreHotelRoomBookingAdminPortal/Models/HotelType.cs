@@ -11,9 +11,11 @@ namespace coreHotelRoomBookingAdminPortal.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
+        
         public int HotelTypeId { get; set; }
+        [Required]
         public string HotelTypeName { get; set; }
+        [Required]
         public string HotelTypeDescription { get; set; }
 
         public List<Hotel> Hotels { get; set; }

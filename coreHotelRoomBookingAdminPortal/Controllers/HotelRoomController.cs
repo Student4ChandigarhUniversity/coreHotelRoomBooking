@@ -23,12 +23,14 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
             return View(hotelRoom);
         }
         [HttpGet]
+
         public ViewResult Create()
         {
             ViewBag.hotel = new SelectList(context.Hotels, "HotelId", "HotelName");
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(HotelRoom e1)
         {
             context.HotelRooms.Add(e1);
@@ -68,6 +70,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, HotelRoom e1)
         {
             HotelRoom hotelRoom = context.HotelRooms.Where(x => x.RoomId == id).SingleOrDefault();

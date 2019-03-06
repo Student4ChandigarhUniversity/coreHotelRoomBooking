@@ -5,14 +5,17 @@
 }
 <br />
 <form asp-action="Edit" asp-controller="HType">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <label for="HotelTypeName">Hotel Type Name</label>
-        <input type="text" asp-for="HotelTypeName" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Name" required autofocus>
+        <input type="text" asp-for="HotelTypeName" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Name">
+        <span asp-validation-for="HotelTypeName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label for="HotelTypeDescription">Hotel Type Description</label>
-        <input type="text" asp-for="HotelTypeDescription" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Description" required autofocus>
+        <input type="text" asp-for="HotelTypeDescription" class="form-control" aria-describedby="emailHelp" placeholder="Enter Hotel Type Description" >
+        <span asp-validation-for="HotelTypeName" class="text-danger"></span>
     </div>
     <button class="btn btn-info" type="submit">Edit</button>
     <br />
