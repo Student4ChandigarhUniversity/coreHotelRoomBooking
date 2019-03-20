@@ -29,7 +29,10 @@ namespace coreHotelRoomBookingUserPanel.Controllers
                 {
                     HttpContext.Session.SetString("CartItem", count.ToString());
                 }
+               
             }
+            
+
             return View(hotel);
             
         }
@@ -78,15 +81,12 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             return View();
         }
 
-
+        [Route("search")]
         [HttpGet]
-        public IActionResult Search(string strFilter)
+        public IActionResult Search(string search)
         {
-            strFilter.Trim();
-            var data = from c in context.ChangeType
-                       where c.HName.Contains(strFilter) || c.HRemark.Contains(strFilter)
-                       select c;
-            return View("Index", data);
+            ViewBag.Hotel = context.Hotels.Where(x => x.HotelName == search || x.HotelCity == search || x.HotelState == search || search == null).ToList();
+            return View(context.Hotels.Where(x => x.HotelName == search || search == null).ToList());
         }
     }
 }

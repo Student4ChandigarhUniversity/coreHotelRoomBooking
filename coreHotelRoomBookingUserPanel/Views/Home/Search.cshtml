@@ -3,14 +3,14 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+
 <main role="main">
 
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Hotel Room Booking</h1>
             <p class="lead text-muted">
-                The management and booking of rooms in large buildings is a tedious and complicated task. The combination of different rooms with different sizes and equipment, the possibility to choose between different dates and times is the reason
-                why a good booking system is needed to make this task as easy as possible
+                Welcome
             </p>
         </div>
     </section>
@@ -19,7 +19,7 @@
         <div class="container">
 
             <div class="row">
-                @foreach (var item in Model)
+                @foreach (var item in ViewBag.Hotel)
                 {
                     <!--Thumbnail Starts-->
                     <div class="col-md-4">
