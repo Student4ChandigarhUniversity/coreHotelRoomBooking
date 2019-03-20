@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<coreHotelRoomBookingUserPanel.Models.HotelRooms>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "HotelRoomsIndex";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
 <main role="main">
 
     <section class="jumbotron text-center">
@@ -20,22 +19,20 @@
         <div class="container">
 
             <div class="row">
-                @foreach (var item in Model)
+                @foreach (var item in  ViewBag.HotelRoomIndex)
                 {
                     <!--Thumbnail Starts-->
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img src="@item.RoomImage" class="bd-placeholder-img card-img-top" />
+                            <img src="@item.RoomImage" class="bd-placeholder-img card-img-top image" />
 
 
                             <div class="card-body">
                                 <p class="card-text">@item.RoomType</p>
-                                <p class="card-text">@item.RoomDescription</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        @*<button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>*@
-                                        <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">Book Now</a>
+                                        <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">Add To Cart</a>
+                                        <a asp-controller="Home" asp-action="RoomsDetails" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">View Details</a>
                                     </div>
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -50,8 +47,3 @@
     </div>
 
 </main>
-
-
-
-
-

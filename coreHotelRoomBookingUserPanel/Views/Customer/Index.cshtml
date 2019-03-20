@@ -10,21 +10,21 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/Login.css"/>
+    <link rel="stylesheet" href="~/css/Login.css" />
 </head>
-<body class="text-center"> 
-    <form class="form-signin" method="post" asp-controller="account" asp-action="mylogin">
+<body class="text-center">
+    <form class="form-signin" method="post" asp-controller="Customer" asp-action="MyLogin">
         <img class="mb-4" src="~/images/hotelogo.jpg" alt="Hotel Room Booking" width="220" height="72">
 
         <label for="username" class="sr-only">Username</label>
-        <input type="text" name="username" class="form-control" placeholder="Admin Name" required autofocus>
+        <input type="text" name="username" class="form-control" placeholder="Customer Name" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
         <strong>@ViewBag.Error</strong>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <br/>
-        <a  asp-controller="User" asp-action="Create" class="btn btn-lg btn-primary btn-block" >Register</a>
+        <br />
+        <a asp-controller="Customer" asp-action="Create" class="btn btn-lg btn-primary btn-block">Register</a>
         <p class="mt-5 mb-3 text-muted">&copy; JAAM</p>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

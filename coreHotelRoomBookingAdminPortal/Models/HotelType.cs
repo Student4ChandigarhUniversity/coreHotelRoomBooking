@@ -18,6 +18,9 @@ namespace coreHotelRoomBookingAdminPortal.Models
         [Required]
         public string HotelTypeDescription { get; set; }
 
-        public List<Hotel> Hotels { get; set; }
+        //public List<Hotel> Hotels { get; set; }
+
+        public virtual UserDetail UserDetail { get; set; }
+        public virtual List<Hotel> Hotels { get; set; }
     }
 }

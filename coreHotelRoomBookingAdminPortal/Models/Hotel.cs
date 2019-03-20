@@ -27,8 +27,11 @@ namespace coreHotelRoomBookingAdminPortal.Models
 
         public int HotelTypeId { get; set; }
 
-        public List<HotelRoom> HotelRooms { get; set; }
 
-        public HotelType HotelType { get; set; }
+        public virtual HotelType HotelType { get; set; }
+        public virtual List<HotelRoom> HotelRooms { get; set; }
+        //public List<HotelRoom> HotelRooms { get; set; }
+
+        //public HotelType HotelType { get; set; }
     }
 }

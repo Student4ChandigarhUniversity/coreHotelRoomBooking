@@ -22,7 +22,11 @@ namespace coreHotelRoomBookingAdminPortal.Models
         public int HotelId { get; set; }
 
         //Navigation Properties
-        public Hotel Hotel { get; set; }
+
         public RoomFacility RoomFacility { get; set; }
+        public virtual Booking Booking { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        //public Hotel Hotel { get; set; }
+        //public RoomFacility RoomFacility { get; set; }
     }
 }

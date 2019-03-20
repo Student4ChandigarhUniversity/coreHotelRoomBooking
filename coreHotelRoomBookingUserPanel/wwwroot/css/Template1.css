@@ -3,7 +3,7 @@ body {
     padding-top: 5rem;
 }
 
-img{
+.image{
     height:230px;
 }
 
@@ -18,4 +18,8 @@ img{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.cartcolor a:visited {
+    color: red;
 }
