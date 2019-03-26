@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <a asp-controller="Booking" asp-action="Buy" asp-route-id="@ViewBag.HotelRoom.RoomId" class="btn btn-primary">Add To Cart</a>
+    <a asp-controller="Booking" asp-action="Buy" asp-route-id="@ViewBag.HotelRoom.RoomId" onclick="cartAleart()" class="btn btn-primary">Add To Cart</a>
     <br/>
     <a asp-controller="Home" asp-action="HotelRoomsIndex" asp-route-id="@ViewBag.Hotel.HotelId" class="btn btn-primary">Back to Home</a>
 </div>

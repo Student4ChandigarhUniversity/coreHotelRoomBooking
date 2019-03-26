@@ -16,13 +16,11 @@ namespace coreHotelRoomBookingAdminPortal.Models
         //public DateTime CheckOut { get; set; }
         //public int NumberOfRooms { get; set; }
         public double TotalAmount { get; set; }
-        //public int CustomerId { get; set; }
         public DateTime BookingDate { get; set; }
         //public int RoomId { get; set; }
-        public int HotelId { get; set; }
-
+        //public int HotelId { get; set; }
         //Relationship
         public virtual Customer Customer { get; set; }
-        public virtual List<HotelRoom> HotelRooms { get; set; }
+        //public virtual List<HotelRoom> HotelRooms { get; set; }
     }
 }

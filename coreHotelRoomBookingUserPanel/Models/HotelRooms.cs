@@ -16,9 +16,7 @@ namespace coreHotelRoomBookingUserPanel.Models
         public string RoomDescription { get; set; }
         public string RoomImage { get; set; }
         public int HotelId { get; set; }
-        public int? BookingId { get; set; }
 
-        public Bookings Booking { get; set; }
         public Hotels Hotel { get; set; }
         public RoomFacilities RoomFacilities { get; set; }
         public ICollection<BookingRecords> BookingRecords { get; set; }

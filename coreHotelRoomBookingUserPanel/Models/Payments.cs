@@ -10,7 +10,8 @@ namespace coreHotelRoomBookingUserPanel.Models
         public double PaymentAmount { get; set; }
         public string PaymentDescription { get; set; }
         public int CustomerId { get; set; }
+        public int BookingId { get; set; }
 
-        public Customers Customer { get; set; }
+        public Bookings Booking { get; set; }
     }
 }

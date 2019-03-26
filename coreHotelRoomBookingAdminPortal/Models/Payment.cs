@@ -17,7 +17,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
         public double PaymentAmount { get; set; }
         public string PaymentDescription { get; set; }
         public int CustomerId { get; set; }
-
-        public Customer Customer { get; set; }
+        public int BookingId { get; set; }
+        public Booking Booking{ get; set; }
     }
 }
