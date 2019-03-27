@@ -24,6 +24,6 @@ namespace coreHotelRoomBookingAdminPortal.Models
 
         //Relationship
         public virtual List<Booking> Bookings { get; set; }
-        public Payment Payment { get; set; }
+        //public Payment Payment { get; set; }
     }
 }

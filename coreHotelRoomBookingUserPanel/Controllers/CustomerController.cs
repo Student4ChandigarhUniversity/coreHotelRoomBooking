@@ -38,6 +38,7 @@ namespace coreHotelRoomBookingUserPanel.Controllers
                 if (username != null && password != null && username.Equals(userName) && password.Equals("12345"))
                 {
                     HttpContext.Session.SetString("uname", username);
+                    HttpContext.Session.SetString("cID", custId.ToString());
                     return RedirectToAction("Checkout","Booking",new { @id = custId });
                 }
                 else
@@ -67,7 +68,6 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             context.Customers.Add(c1);
             context.SaveChanges();
             return RedirectToAction("Index", "Customer");
-
         }
     }
 }

@@ -39,7 +39,6 @@ namespace coreHotelRoomBookingAdminPortal.Models
             modelBuilder.Entity<HotelType>().HasOne(h => h.UserDetail).WithMany(b => b.HotelTypes).OnDelete(DeleteBehavior.SetNull);
             modelBuilder.Entity<Booking>().HasOne(h => h.Customer).WithMany(b => b.Bookings).OnDelete(DeleteBehavior.SetNull);
             modelBuilder.Entity<HotelRoom>().HasOne(h => h.Hotel).WithMany(b => b.HotelRooms).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<HotelRoom>().HasOne(h => h.Booking).WithMany(b => b.HotelRooms).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<BookingRecord>(
                 build =>

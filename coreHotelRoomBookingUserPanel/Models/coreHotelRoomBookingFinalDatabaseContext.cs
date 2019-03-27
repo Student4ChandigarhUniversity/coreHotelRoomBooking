@@ -30,7 +30,7 @@ namespace coreHotelRoomBookingUserPanel.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=TRD-520;Initial Catalog=coreHotelRoomBookingFinalDatabase;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Server=TRD-520;Initial Catalog=coreHotelRoomBookingFinalDatabase;Trusted_Connection=True;");
             }
         }
 
@@ -72,14 +72,7 @@ namespace coreHotelRoomBookingUserPanel.Models
             {
                 entity.HasKey(e => e.RoomId);
 
-                entity.HasIndex(e => e.BookingId);
-
                 entity.HasIndex(e => e.HotelId);
-
-                entity.HasOne(d => d.Booking)
-                    .WithMany(p => p.HotelRooms)
-                    .HasForeignKey(d => d.BookingId)
-                    .OnDelete(DeleteBehavior.SetNull);
 
                 entity.HasOne(d => d.Hotel)
                     .WithMany(p => p.HotelRooms)
@@ -117,12 +110,11 @@ namespace coreHotelRoomBookingUserPanel.Models
             {
                 entity.HasKey(e => e.PaymentId);
 
-                entity.HasIndex(e => e.CustomerId)
-                    .IsUnique();
+                entity.HasIndex(e => e.BookingId);
 
-                entity.HasOne(d => d.Customer)
-                    .WithOne(p => p.Payments)
-                    .HasForeignKey<Payments>(d => d.CustomerId);
+                entity.HasOne(d => d.Booking)
+                    .WithMany(p => p.Payments)
+                    .HasForeignKey(d => d.BookingId);
             });
 
             modelBuilder.Entity<RoomFacilities>(entity =>

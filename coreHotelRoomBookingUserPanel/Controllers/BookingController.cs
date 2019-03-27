@@ -127,12 +127,12 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         public IActionResult Checkout(int id)
         {
             var customers = context.Customers.Where(x => x.CustomerId == id).SingleOrDefault();
-            
+            TempData["cid"] = customers.CustomerId;
             var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
             ViewBag.booking = booking;
             ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
             TempData["total"] = ViewBag.total;
-            TempData["cid"] = customers.CustomerId;
+            
             return View(customers);
             //return View();
         }
@@ -172,6 +172,17 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             ViewBag.booking = null;
             return RedirectToAction("Invoice");
         }
+
+        //public IActionResult OrderHistory()
+        //{
+
+        //    int custId =int.Parse(HttpContext.Session.GetString("cID")) ;
+        //    var bking = context.Bookings.Where(x => x.CustomerId == custId).ToList();
+
+        //    return View();
+
+        //}
+
 
         [Route("invoice")]
         [HttpGet]

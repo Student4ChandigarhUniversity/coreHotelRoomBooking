@@ -7,17 +7,13 @@ using System.Threading.Tasks;
 
 namespace coreHotelRoomBookingAdminPortal.Models
 {
-    public class Payment
+    public class Cart
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
-        public int PaymentId { get; set; }
-        public DateTime PaymentDate { get; set; }
-        public double PaymentAmount { get; set; }
-        public string PaymentDescription { get; set; }
+        public int CartId { get; set; }
         public int CustomerId { get; set; }
-        public int BookingId { get; set; }
-        public Booking Booking{ get; set; }
+
+        public List<Customer> Customers { get; set; }
     }
 }

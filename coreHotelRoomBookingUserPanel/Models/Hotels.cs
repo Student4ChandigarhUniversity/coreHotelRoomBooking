@@ -18,7 +18,7 @@ namespace coreHotelRoomBookingUserPanel.Models
         public string HotelState { get; set; }
         public string HotelCountry { get; set; }
         public string HotelEmailId { get; set; }
-        public int HotelRating { get; set; }
+        public string HotelRating { get; set; }
         public long HotelContactNumber { get; set; }
         public string HotelImage { get; set; }
         public string HotelDescription { get; set; }

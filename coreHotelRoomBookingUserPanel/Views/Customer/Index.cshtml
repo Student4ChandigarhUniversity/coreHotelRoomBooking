@@ -1,10 +1,11 @@
 ﻿
+@model coreHotelRoomBookingUserPanel.Models.Customers
+
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,6 +17,7 @@
     <form class="form-signin" method="post" asp-controller="Customer" asp-action="MyLogin">
         <img class="mb-4" src="~/images/hotelogo.jpg" alt="Hotel Room Booking" width="220" height="72">
 
+
         <label for="username" class="sr-only">Username</label>
         <input type="text" name="username" class="form-control" placeholder="Customer Name" required autofocus>
         <label for="password" class="sr-only">Password</label>
@@ -24,9 +26,87 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <br />
-        <a asp-controller="Customer" asp-action="Create" class="btn btn-lg btn-primary btn-block">Register</a>
+        <div class="text-center">
+            <a class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#modalRegisterForm">
+                Register Here
+            </a>
+        </div>
         <p class="mt-5 mb-3 text-muted">&copy; JAAM</p>
     </form>
+
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Customer Registration</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form method="post" asp-controller="Customer" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="CustomerFirstName" class="control-label">First Name</label>
+                            <input asp-for="CustomerFirstName" class="form-control" />
+                            <span asp-validation-for="CustomerFirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CustomerLastName" class="control-label">Last Name</label>
+                            <input asp-for="CustomerLastName" class="form-control" />
+                            <span asp-validation-for="CustomerLastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CustomerAddress" class="control-label"> Address</label>
+                            <input asp-for="CustomerAddress" class="form-control" />
+                            <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="State" class="control-label">State</label>
+                            <input asp-for="State" class="form-control" />
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Country" class="control-label">Country</label>
+                            <input asp-for="Country" class="form-control" />
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Zip" class="control-label">PIN Code</label>
+                            <input asp-for="Zip" class="form-control" />
+                            <span asp-validation-for="Zip" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CustomerContactNumber" class="control-label">Contact Number</label>
+                            <input asp-for="CustomerContactNumber" class="form-control" />
+                            <span asp-validation-for="CustomerContactNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CustomerEmailId" class="control-label">Email Id</label>
+                            <input asp-for="CustomerEmailId" class="form-control" />
+                            <span asp-validation-for="CustomerEmailId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CustomerPassword" class="control-label">Password</label>
+                            <input type="password" asp-for="CustomerPassword" class="form-control" />
+                            <span asp-validation-for="CustomerPassword" class="text-danger"></span>
+                        </div>
+
+
+
+                        <button class="btn btn-warning">Register</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
