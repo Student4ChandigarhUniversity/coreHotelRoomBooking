@@ -9,6 +9,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
 {
     public class BookingRecord
     {
+
         [Column(Order = 0), Key, ForeignKey("Booking")]
         public int BookingId { get; set; }
         [Column(Order = 1), Key, ForeignKey("HotelRoom")]
