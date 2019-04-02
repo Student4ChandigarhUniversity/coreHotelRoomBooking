@@ -9,6 +9,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
 {
     public class Cart
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartId { get; set; }

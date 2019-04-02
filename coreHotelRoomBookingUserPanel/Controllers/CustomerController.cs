@@ -19,7 +19,6 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             return View();
         }
 
-
         [Route("mylogin")]
         [HttpPost]
         public IActionResult MyLogin(string username, string password)

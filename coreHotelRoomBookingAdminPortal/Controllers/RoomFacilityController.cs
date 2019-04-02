@@ -11,7 +11,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
     public class RoomFacilityController : Controller
     {
         HotelAdminDbContext context;
-
+    
         public RoomFacilityController(HotelAdminDbContext _context)
         {
             context = _context;

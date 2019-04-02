@@ -10,7 +10,6 @@ namespace coreHotelRoomBookingUserPanel.Models
             BookingRecords = new HashSet<BookingRecords>();
             Payments = new HashSet<Payments>();
         }
-
         public int BookingId { get; set; }
         public double TotalAmount { get; set; }
         public DateTime BookingDate { get; set; }

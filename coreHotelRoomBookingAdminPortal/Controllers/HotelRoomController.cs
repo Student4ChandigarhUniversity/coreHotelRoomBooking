@@ -17,6 +17,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
             context = _context;
         }
 
+
         public IActionResult Index()
         {
             var hotelRoom = context.HotelRooms.ToList();

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace coreHotelRoomBookingUserPanel.Controllers
 {
     [Route("booking")]
+
     public class BookingController : Controller
     {
         coreHotelRoomBookingFinalDatabaseContext context = new coreHotelRoomBookingFinalDatabaseContext();

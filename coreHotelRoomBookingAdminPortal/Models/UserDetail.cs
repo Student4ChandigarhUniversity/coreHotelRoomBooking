@@ -9,6 +9,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
 {
     public class UserDetail
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }

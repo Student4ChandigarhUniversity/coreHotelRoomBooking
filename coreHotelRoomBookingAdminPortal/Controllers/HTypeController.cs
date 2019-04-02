@@ -11,7 +11,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
     public class HTypeController : Controller
     {
         HotelAdminDbContext context;
-
+    
         public HTypeController(HotelAdminDbContext _context)
         {
             context = _context;

@@ -9,7 +9,6 @@ namespace coreHotelRoomBookingUserPanel.Models
         {
             BookingRecords = new HashSet<BookingRecords>();
         }
-
         public int RoomId { get; set; }
         public string RoomType { get; set; }
         public int RoomPrice { get; set; }

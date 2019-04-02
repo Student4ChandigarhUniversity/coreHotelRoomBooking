@@ -5,6 +5,7 @@ namespace coreHotelRoomBookingUserPanel.Models
 {
     public partial class RoomFacilities
     {
+
         public int RoomFacilityId { get; set; }
         public bool IsAvilable { get; set; }
         public bool Wifi { get; set; }

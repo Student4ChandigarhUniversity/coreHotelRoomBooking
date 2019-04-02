@@ -11,7 +11,6 @@ namespace coreHotelRoomBookingAdminPortal.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int PaymentId { get; set; }
         public DateTime PaymentDate { get; set; }
         public double PaymentAmount { get; set; }

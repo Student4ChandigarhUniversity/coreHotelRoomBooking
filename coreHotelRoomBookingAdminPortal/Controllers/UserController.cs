@@ -10,7 +10,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
     public class UserController : Controller
     {
         HotelAdminDbContext context;
-
+    
         public UserController(HotelAdminDbContext _context)
         {
             context = _context;
