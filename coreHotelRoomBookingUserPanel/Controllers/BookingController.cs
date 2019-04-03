@@ -142,36 +142,45 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         {
             var amount = TempData["total"];
             var cid = (TempData["cid"]).ToString();
+            int.Parse(HttpContext.Session.GetString("cID"));
+
+
+            DateTime cin =DateTime.Parse( HttpContext.Session.GetString("CheckIn"));
+            DateTime cout = DateTime.Parse(HttpContext.Session.GetString("CheckOut"));
+
             Bookings bookings = new Bookings()
-            {
-                TotalAmount = Convert.ToSingle(amount),
-                BookingDate = DateTime.Now,
-                CustomerId = int.Parse(cid)
-            };
-
-            ViewBag.Book = bookings;
-            context.Bookings.Add(bookings);
-            context.SaveChanges();
-
-
-            var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
-            List<BookingRecords> bookingRecords = new List<BookingRecords>();
-            for(int i=0; i<booking.Count;i++)
-            {
-                BookingRecords bookingRecord = new BookingRecords()
                 {
-                    BookingId = bookings.BookingId,
-                    RoomId = booking[i].HotelRooms.RoomId,
-                    Quantity = booking[i].Quantity
+                    TotalAmount = Convert.ToSingle(amount),
+                    BookingDate = DateTime.Now,
+                    CheckIn = cin,
+                    CheckOut = cout,
+                    CustomerId = int.Parse(cid)
                 };
-                bookingRecords.Add(bookingRecord);
-            }
 
-            bookingRecords.ForEach(n => context.BookingRecords.Add(n));
-            context.SaveChanges();
-            TempData["cust"] = cid;
-            ViewBag.booking = null;
-            return RedirectToAction("Invoice");
+                ViewBag.Book = bookings;
+                context.Bookings.Add(bookings);
+                context.SaveChanges();
+
+
+                var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
+                List<BookingRecords> bookingRecords = new List<BookingRecords>();
+                for (int i = 0; i < booking.Count; i++)
+                {
+                    BookingRecords bookingRecord = new BookingRecords()
+                    {
+                        BookingId = bookings.BookingId,
+                        RoomId = booking[i].HotelRooms.RoomId,
+                        Quantity = booking[i].Quantity
+                    };
+                    bookingRecords.Add(bookingRecord);
+                }
+
+                bookingRecords.ForEach(n => context.BookingRecords.Add(n));
+                context.SaveChanges();
+                TempData["cust"] = cid;
+                ViewBag.booking = null;
+                return RedirectToAction("Invoice");
+            
         }
 
         //public IActionResult OrderHistory()

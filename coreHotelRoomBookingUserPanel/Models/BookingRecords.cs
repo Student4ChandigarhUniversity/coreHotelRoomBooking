@@ -8,6 +8,7 @@ namespace coreHotelRoomBookingUserPanel.Models
         public int BookingId { get; set; }
         public int RoomId { get; set; }
         public int Quantity { get; set; }
+
         public Bookings Booking { get; set; }
         public HotelRooms Room { get; set; }
     }

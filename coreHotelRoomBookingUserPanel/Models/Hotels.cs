@@ -9,6 +9,7 @@ namespace coreHotelRoomBookingUserPanel.Models
         {
             HotelRooms = new HashSet<HotelRooms>();
         }
+
         public int HotelId { get; set; }
         public string HotelName { get; set; }
         public string HotelAddress { get; set; }

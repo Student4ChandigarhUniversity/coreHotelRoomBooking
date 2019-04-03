@@ -83,8 +83,10 @@ namespace coreHotelRoomBookingUserPanel.Controllers
 
         [Route("search")]
         [HttpGet]
-        public IActionResult Search(string search)
+        public IActionResult Search(string search, string CheckIn , string CheckOut)
         {
+            HttpContext.Session.SetString("CheckIn", CheckIn.ToString());
+            HttpContext.Session.SetString("CheckOut", CheckOut.ToString());
             ViewBag.Hotel = context.Hotels.Where(x => x.HotelName == search || x.HotelCity == search || x.HotelState == search || search == null).ToList();
             return View(context.Hotels.Where(x => x.HotelName == search || search == null).ToList());
         }

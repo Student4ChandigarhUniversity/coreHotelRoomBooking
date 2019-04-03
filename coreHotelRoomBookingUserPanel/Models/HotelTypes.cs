@@ -10,7 +10,6 @@ namespace coreHotelRoomBookingUserPanel.Models
             Hotels = new HashSet<Hotels>();
         }
 
-
         public int HotelTypeId { get; set; }
         public string HotelTypeName { get; set; }
         public string HotelTypeDescription { get; set; }

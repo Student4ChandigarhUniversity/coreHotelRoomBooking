@@ -22,30 +22,33 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            @*<marquee>
+                 Most Welcome to Hotel Room Booking.
+            </marquee>*@
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel Type</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel</a>
-                </li>
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel Type</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel</a>
+            </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel Room</a>
-                </li>
-            </ul>
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Hotel Room</a>
+            </li>
+        </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" name="Search" id="Search" type="text" placeholder="Search" aria-label="Search">&nbsp;
-                <button class="btn btn-outline-success my-2 my-sm-0" asp-controller="Home" asp-action="Search" type="submit">Search</button>&nbsp;&nbsp;
-                <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Booking" asp-action="Index">View Cart @Context.Session.GetString("CartItem")</a>
-            </form>
+            <input class="form-control mr-sm-2" name="Search" id="Search" type="text" placeholder="Search" aria-label="Search">&nbsp;
+            <button class="btn btn-outline-success my-2 my-sm-0" asp-controller="Home" asp-action="Search" type="submit">Search</button>&nbsp;&nbsp;
+            <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Booking" asp-action="Index">View Cart @Context.Session.GetString("CartItem")</a>
+        </form>
             @*<form class="form-inline my-2 my-lg-0">
-                <label class="form-control">
-                    Welcome @Context.Session.GetString("uname")!!
-                    </label>
-                    &nbsp;&nbsp;
-                    <a class="btn btn-outline-success my-2 my-sm-0" asp-action="Logout" asp-controller="Account">Logout</a>
-                    </form>*@
+        <label class="form-control">
+            Welcome @Context.Session.GetString("uname")!!
+            </label>
+            &nbsp;&nbsp;
+            <a class="btn btn-outline-success my-2 my-sm-0" asp-action="Logout" asp-controller="Account">Logout</a>
+            </form>*@
         </div>
     </nav>
     <main role="main" class="container">

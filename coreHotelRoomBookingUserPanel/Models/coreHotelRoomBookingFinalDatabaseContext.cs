@@ -29,8 +29,8 @@ namespace coreHotelRoomBookingUserPanel.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=TRD-520;Initial Catalog=coreHotelRoomBookingFinalDatabase;Trusted_Connection=True;");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=TRD-520;Initial Catalog=coreHotelRoomBookingFinalDatabase;Integrated Security=true;");
             }
         }
 
@@ -56,6 +56,10 @@ namespace coreHotelRoomBookingUserPanel.Models
                 entity.HasKey(e => e.BookingId);
 
                 entity.HasIndex(e => e.CustomerId);
+
+                entity.Property(e => e.CheckIn).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+
+                entity.Property(e => e.CheckOut).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Bookings)

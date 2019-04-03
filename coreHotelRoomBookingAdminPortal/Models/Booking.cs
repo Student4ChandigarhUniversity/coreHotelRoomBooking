@@ -13,8 +13,8 @@ namespace coreHotelRoomBookingAdminPortal.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookingId { get; set; }
-        //public DateTime CheckIn { get; set; }
-        //public DateTime CheckOut { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
         //public int NumberOfRooms { get; set; }
         public double TotalAmount { get; set; }
         public DateTime BookingDate { get; set; }
