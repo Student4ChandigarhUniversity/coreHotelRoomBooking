@@ -18,18 +18,25 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         [Route ("index")]
         public IActionResult Index()
         {
+            try
+            {
+                var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
+                ViewBag.booking = booking;
+                if (ViewBag.booking == null)
+                {
+                    return View("EmptyCart");
+                }
+                else
+                {
+                    ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
+                }
+                return View();
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("Error","Booking");
+            }
            
-            var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
-            ViewBag.booking = booking;
-            if(ViewBag.booking == null)
-            {
-                return View("EmptyCart");
-            }
-            else
-            {
-                ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
-            }
-            return View();
         }
         
         [Route("buy/{id}")]
@@ -123,7 +130,6 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             return View();
         }
 
-        //[Route("checkout")]
         [HttpGet]
         public IActionResult Checkout(int id)
         {
@@ -142,7 +148,6 @@ namespace coreHotelRoomBookingUserPanel.Controllers
                 TempData["total"] = ViewBag.total;
 
                 return View(customers);
-                //return View();
             }
 
         }
@@ -192,16 +197,15 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             
         }
 
-        //public IActionResult OrderHistory()
-        //{
+        public IActionResult OrderHistory()
+        {
 
-        //    int custId =int.Parse(HttpContext.Session.GetString("cID")) ;
-        //    var bking = context.Bookings.Where(x => x.CustomerId == custId).ToList();
+            int custId = int.Parse(HttpContext.Session.GetString("cID"));
+            var bking = context.Bookings.Where(x => x.CustomerId == custId).ToList();
 
-        //    return View();
+            return View();
 
-        //}
-
+        }
 
         [Route("invoice")]
         [HttpGet]
@@ -210,15 +214,17 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             int custId = int.Parse(TempData["cust"].ToString());
             Customers customers = context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
             ViewBag.Customers = customers;
-
             var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
-            
-            
             ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
             ViewBag.booking = booking;
             booking = null;
             SessionHelper.SetObjectAsJson(HttpContext.Session, "Booking", booking);
             HttpContext.Session.Remove("CartItem");
+            return View();
+        }
+
+        public IActionResult Error()
+        {
             return View();
         }
     }

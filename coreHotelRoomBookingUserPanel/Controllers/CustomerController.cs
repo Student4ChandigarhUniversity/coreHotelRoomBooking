@@ -65,6 +65,9 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("uname");
+            HttpContext.Session.Remove("Search");
+            HttpContext.Session.Remove("CheckIn");
+            HttpContext.Session.Remove("CheckOut");
             return RedirectToAction("Index","Home");
         }
 
@@ -79,6 +82,42 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             context.Customers.Add(c1);
             context.SaveChanges();
             return RedirectToAction("Index", "Customer");
+        }
+
+        [Route("details")]
+        public ViewResult Details()
+        {
+            int custId = int.Parse(HttpContext.Session.GetString("cID"));
+            Customers cust = context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
+            return View(cust);
+        }
+        [Route("edit")]
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            int custId = int.Parse(HttpContext.Session.GetString("cID"));
+            Customers cust = context.Customers.Where(x => x.CustomerId == custId ).SingleOrDefault();
+            return View(cust);
+        }
+        [Route("edit")]
+        [HttpPost]
+        public IActionResult Edit(Customers e1)
+        {
+            int custId = int.Parse(HttpContext.Session.GetString("cID"));
+
+            Customers cust = context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
+
+            cust.CustomerFirstName = e1.CustomerFirstName;
+            cust.CustomerLastName = e1.CustomerLastName;
+            cust.CustomerAddress = e1.CustomerAddress;
+            cust.CustomerContactNumber = e1.CustomerContactNumber;
+            cust.CustomerEmailId = e1.CustomerEmailId;
+            cust.Country = e1.Country;
+            cust.State = e1.State;
+            cust.Zip = e1.Zip;
+            cust.CustomerPassword = e1.CustomerPassword;
+            context.SaveChanges();
+            return RedirectToAction("Details","Customer");
         }
     }
 }

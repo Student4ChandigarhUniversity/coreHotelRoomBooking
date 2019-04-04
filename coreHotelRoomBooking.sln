@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreHotelRoomBookingAdminPo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coreHotelRoomBookingUserPanel", "coreHotelRoomBookingUserPanel\coreHotelRoomBookingUserPanel.csproj", "{48D70404-53D9-4472-85C9-5754D08587FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectMS", "UnitTestProjectMS\UnitTestProjectMS.csproj", "{9EB8AAF8-2E3D-4B43-9277-E9E48E33581B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{48D70404-53D9-4472-85C9-5754D08587FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D70404-53D9-4472-85C9-5754D08587FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D70404-53D9-4472-85C9-5754D08587FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EB8AAF8-2E3D-4B43-9277-E9E48E33581B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EB8AAF8-2E3D-4B43-9277-E9E48E33581B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EB8AAF8-2E3D-4B43-9277-E9E48E33581B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EB8AAF8-2E3D-4B43-9277-E9E48E33581B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

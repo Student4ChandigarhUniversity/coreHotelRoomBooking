@@ -83,10 +83,7 @@ Layout = "~/Views/Shared/_UserLayout.cshtml";
                                 <p class="card-text">@item.RoomType</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        
-                                            <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" onclick="cartAlert()" class="btn btn-sm btn-outline-secondary">Book Now</a>
-
-
+                                        <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" onclick="cartAlert()" class="btn btn-sm btn-outline-secondary">Book Now</a>
                                         <a asp-controller="Home" asp-action="RoomsDetails" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">View Details</a>
                                     </div>
                                     <small class="text-muted">9 mins</small>

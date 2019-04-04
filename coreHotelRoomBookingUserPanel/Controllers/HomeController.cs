@@ -50,6 +50,7 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         public IActionResult HotelRoomsIndex(int id)
         {
             List<Item> booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
+            ViewBag.Booking = booking;
             int count = 0;
             if (booking != null)
             {
