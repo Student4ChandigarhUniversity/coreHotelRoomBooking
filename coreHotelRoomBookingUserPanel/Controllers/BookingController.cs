@@ -130,12 +130,21 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             var customers = context.Customers.Where(x => x.CustomerId == id).SingleOrDefault();
             TempData["cid"] = customers.CustomerId;
             var booking = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "Booking");
-            ViewBag.booking = booking;
-            ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
-            TempData["total"] = ViewBag.total;
-            
-            return View(customers);
-            //return View();
+
+            if (booking == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.booking = booking;
+                ViewBag.total = booking.Sum(item => item.HotelRooms.RoomPrice * item.Quantity);
+                TempData["total"] = ViewBag.total;
+
+                return View(customers);
+                //return View();
+            }
+
         }
         [HttpPost]
         public IActionResult Checkout()

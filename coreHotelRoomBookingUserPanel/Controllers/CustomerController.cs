@@ -16,7 +16,19 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            return View();
+            var cname = HttpContext.Session.GetString("uname");
+            
+            if (cname != null)
+            {
+                int custId = int.Parse(HttpContext.Session.GetString("cID"));
+                return RedirectToAction("Checkout", "Booking", new { @id = custId });
+
+            }
+            else
+            {
+                return View("Index");
+            }
+            
         }
 
         [Route("mylogin")]
@@ -33,8 +45,8 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             {
                 var userName = user.CustomerFirstName;
                 int custId = user.CustomerId;
-                //var passWord = user.UserPassword;
-                if (username != null && password != null && username.Equals(userName) && password.Equals("12345"))
+                var passWord = user.CustomerPassword;
+                if (username != null && password != null && username.Equals(userName) && password.Equals(passWord))
                 {
                     HttpContext.Session.SetString("uname", username);
                     HttpContext.Session.SetString("cID", custId.ToString());
@@ -53,7 +65,7 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("uname");
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
         [HttpGet]

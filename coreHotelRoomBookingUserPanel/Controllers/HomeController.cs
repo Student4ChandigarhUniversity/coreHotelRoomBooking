@@ -85,6 +85,12 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         [HttpGet]
         public IActionResult Search(string search, string CheckIn , string CheckOut)
         {
+            if (search == null)
+            {
+
+                return RedirectToAction("Index","Home");
+            }
+            HttpContext.Session.SetString("Search", search.ToString());
             HttpContext.Session.SetString("CheckIn", CheckIn.ToString());
             HttpContext.Session.SetString("CheckOut", CheckOut.ToString());
             ViewBag.Hotel = context.Hotels.Where(x => x.HotelName == search || x.HotelCity == search || x.HotelState == search || search == null).ToList();
