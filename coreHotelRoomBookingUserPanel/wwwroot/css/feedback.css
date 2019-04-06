@@ -1,8 +1,22 @@
 ﻿body {
     background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
 }
+.text-large {
+    margin-right:8%;
+    font-size: 150%;
+    margin-top:8%;
+    margin-bottom: 2%;
+ 
+    text-align: center;
+    color: #0062cc;
+}
 
+
+.rd {
+    margin-right: 8%;
+}
 .contact-form {
+    align-content:center;
     background: #fff;
     margin-top: 10%;
     margin-bottom: 5%;

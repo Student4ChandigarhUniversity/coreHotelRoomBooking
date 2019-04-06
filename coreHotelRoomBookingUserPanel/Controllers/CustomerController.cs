@@ -122,6 +122,33 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             return RedirectToAction("Details","Customer");
         }
 
+
+        [Route("changepassword")]
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        [Route("changepassword")]
+        [HttpPost]
+        public IActionResult ChangePassword(string oldpassword, string newpassword, string newpasswordagain)
+        {
+            int custId = int.Parse(HttpContext.Session.GetString("cID"));
+
+            Customers cust = context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
+
+            if(cust.CustomerPassword == oldpassword && newpassword == newpasswordagain)
+            {
+                cust.CustomerPassword = newpassword;
+                context.SaveChanges();
+            }
+            return RedirectToAction("Details", "Customer");
+        }
+
+
+
+
+
         [Route("feedback")]
         [HttpGet]
         public ViewResult Feedback()
@@ -131,7 +158,7 @@ namespace coreHotelRoomBookingUserPanel.Controllers
         }
         [Route("feedback")]
         [HttpPost]
-        public ActionResult Feedback(Feedbacks e1)
+        public ActionResult Feedback(string Appearance,string Eexpectation, Feedbacks e1)
         {
             context.Feedbacks.Add(e1);
             context.SaveChanges();
