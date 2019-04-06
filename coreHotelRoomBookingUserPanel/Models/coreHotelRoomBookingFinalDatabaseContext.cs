@@ -18,6 +18,7 @@ namespace coreHotelRoomBookingUserPanel.Models
         public virtual DbSet<BookingRecords> BookingRecords { get; set; }
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Feedbacks> Feedbacks { get; set; }
         public virtual DbSet<HotelRooms> HotelRooms { get; set; }
         public virtual DbSet<Hotels> Hotels { get; set; }
         public virtual DbSet<HotelTypes> HotelTypes { get; set; }
@@ -70,6 +71,11 @@ namespace coreHotelRoomBookingUserPanel.Models
             modelBuilder.Entity<Customers>(entity =>
             {
                 entity.HasKey(e => e.CustomerId);
+            });
+
+            modelBuilder.Entity<Feedbacks>(entity =>
+            {
+                entity.HasKey(e => e.FeedbackId);
             });
 
             modelBuilder.Entity<HotelRooms>(entity =>

@@ -149,7 +149,6 @@ namespace coreHotelRoomBookingUserPanel.Controllers
 
                 return View(customers);
             }
-
         }
         [HttpPost]
         public IActionResult Checkout()
@@ -197,12 +196,30 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             
         }
 
+        [Route("orderhistory")]
         public IActionResult OrderHistory()
         {
-
             int custId = int.Parse(HttpContext.Session.GetString("cID"));
             var bking = context.Bookings.Where(x => x.CustomerId == custId).ToList();
+            ViewBag.OHistory = bking;
+            return View();
 
+        }
+
+        [Route("historydetails/{id}")]
+        public IActionResult HistoryDetails(int id)
+        {
+            var bking = context.BookingRecords.Where(x => x.BookingId == id).ToList();
+            ViewBag.HistoryDetails = bking;
+            List<HotelRooms> hotelroom = new List<HotelRooms>();
+
+            foreach(var item in ViewBag.HistoryDetails)
+            {
+                int idd = Convert.ToInt32(item.RoomId);
+                HotelRooms hr = context.HotelRooms.Where(x => x.RoomId == idd).SingleOrDefault();
+                hotelroom.Add(hr);
+            }
+            ViewBag.HotelRoom = hotelroom;
             return View();
 
         }

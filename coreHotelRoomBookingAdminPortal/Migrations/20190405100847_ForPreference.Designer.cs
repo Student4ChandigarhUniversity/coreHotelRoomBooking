@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using coreHotelRoomBookingAdminPortal.Models;
 
 namespace coreHotelRoomBookingAdminPortal.Migrations
 {
     [DbContext(typeof(HotelAdminDbContext))]
-    partial class HotelAdminDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190405100847_ForPreference")]
+    partial class ForPreference
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,29 +86,6 @@ namespace coreHotelRoomBookingAdminPortal.Migrations
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("coreHotelRoomBookingAdminPortal.Models.Feedback", b =>
-                {
-                    b.Property<int>("FeedbackId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Appearance");
-
-                    b.Property<string>("Comments");
-
-                    b.Property<int>("CustomerId");
-
-                    b.Property<string>("Eexpectation");
-
-                    b.Property<int>("HotelId");
-
-                    b.Property<string>("ImproveServices");
-
-                    b.HasKey("FeedbackId");
-
-                    b.ToTable("Feedbacks");
                 });
 
             modelBuilder.Entity("coreHotelRoomBookingAdminPortal.Models.Hotel", b =>

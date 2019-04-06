@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using coreHotelRoomBookingUserPanel.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace coreHotelRoomBookingUserPanel.Controllers
 {
@@ -91,6 +92,7 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             Customers cust = context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
             return View(cust);
         }
+
         [Route("edit")]
         [HttpGet]
         public IActionResult Edit()
@@ -118,6 +120,22 @@ namespace coreHotelRoomBookingUserPanel.Controllers
             cust.CustomerPassword = e1.CustomerPassword;
             context.SaveChanges();
             return RedirectToAction("Details","Customer");
+        }
+
+        [Route("feedback")]
+        [HttpGet]
+        public ViewResult Feedback()
+        {
+            ViewBag.hotel = new SelectList(context.Hotels, "HotelId", "HotelName");
+            return View();
+        }
+        [Route("feedback")]
+        [HttpPost]
+        public ActionResult Feedback(Feedbacks e1)
+        {
+            context.Feedbacks.Add(e1);
+            context.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }

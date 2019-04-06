@@ -26,6 +26,8 @@ namespace coreHotelRoomBookingAdminPortal.Models
 
         public DbSet<BookingRecord> BookingRecords { get; set; }
 
+        public DbSet<Feedback> Feedbacks { get; set; }
+
         public HotelAdminDbContext(DbContextOptions<HotelAdminDbContext> options) : base(options)
         { }
 
