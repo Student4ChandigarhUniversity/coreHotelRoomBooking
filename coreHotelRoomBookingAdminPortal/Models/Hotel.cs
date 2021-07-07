@@ -9,6 +9,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
 {
     public class Hotel
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int HotelId { get; set; }
@@ -19,7 +20,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
         public string HotelState { get; set; }
         public string HotelCountry { get; set; }
         public string HotelEmailId { get; set; }
-        public int HotelRating { get; set; }
+        public string HotelRating { get; set; }
         public long HotelContactNumber { get; set; }
         public string HotelImage { get; set; }
         public string HotelDescription { get; set; }
@@ -27,8 +28,11 @@ namespace coreHotelRoomBookingAdminPortal.Models
 
         public int HotelTypeId { get; set; }
 
-        public List<HotelRoom> HotelRooms { get; set; }
 
-        public HotelType HotelType { get; set; }
+        public virtual HotelType HotelType { get; set; }
+        public virtual List<HotelRoom> HotelRooms { get; set; }
+        //public List<HotelRoom> HotelRooms { get; set; }
+
+        //public HotelType HotelType { get; set; }
     }
 }

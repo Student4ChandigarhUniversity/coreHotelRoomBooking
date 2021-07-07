@@ -1,0 +1,97 @@
+﻿@model IEnumerable<coreHotelRoomBookingUserPanel.Models.Hotels>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+<section class="jumbotron text-center">
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+
+                        <form>
+                            <div class="row no-margin">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Search Hotel</span>
+                                    @*<input class="form-control mr-sm-2" name="Search" id="Search" type="text" placeholder="Search" aria-label="Search">*@
+                                    <input name="Search" id="Search" class="form-control" type="text" placeholder="Name, State, city...">
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Check In</span>
+                                    <input class="form-control" type="date" name="CheckIn" id="CheckIn" value="@ViewBag.CheckIn" required>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Check out</span>
+                                    <input class="form-control" type="date" name="CheckOut" id="CheckOut" value="@ViewBag.Check" required>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Guests</span>
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <br />
+                                    <button class="btn btn-success" asp-controller="Home" asp-action="Search">Check Availability</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<main role="main">
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <!--Thumbnail Starts-->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="@item.HotelImage" class="bd-placeholder-img card-img-top image" />
+
+
+                            <div class="card-body">
+                                <p class="card-text">@item.HotelName</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a asp-controller="Home" asp-action="HotelRoomsIndex" asp-route-id="@item.HotelId" class="btn btn-sm btn-outline-secondary">View Rooms</a>
+                                        <a asp-controller="Home" asp-action="Details" asp-route-id="@item.HotelId" class="btn btn-sm btn-outline-secondary">View Details</a>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Thumbnail Ends-->
+                }
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+

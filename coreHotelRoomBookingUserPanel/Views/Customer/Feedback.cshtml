@@ -1,0 +1,135 @@
+﻿@model coreHotelRoomBookingUserPanel.Models.Feedbacks
+@using Microsoft.AspNetCore.Http;
+
+@*<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Feedback">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Appearance" class="control-label"></label>
+                <input asp-for="Appearance" type="radio" class="form-control" value="Good" />Good
+
+                <span asp-validation-for="Appearance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eexpectation" class="control-label"></label>
+                <input asp-for="Eexpectation" class="form-control" />
+                <span asp-validation-for="Eexpectation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImproveServices" class="control-label"></label>
+                <input asp-for="ImproveServices" class="form-control" />
+                <span asp-validation-for="ImproveServices" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="HotelId">Hotel Name</label>
+                <select asp-for="HotelId" asp-items="ViewBag.hotel" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" value="@Context.Session.GetString("cID")" />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/feedback.css" />
+</head>
+<body class="text-center">
+
+
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        </div>
+        <form method="post" asp-action="Feedback" asp-controller="Customer">
+            <h3> Feedback Form</h3>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label class=" text-large" for="HotelId">Hotel Id</label>
+                        <select asp-for="HotelId" asp-items="ViewBag.hotel" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class=" text-large" for="Appearance">Appearance</label>
+                        <input class="form-control" type="text" name="Appearance" placeholder="Excellent / Good / Poor" />
+                        @*<label class="radio-inline rd">
+                            <input type="radio" name="optradio" value="Excellent" checked>Excellent
+                        </label>
+                        <label class="radio-inline rd">
+                            <input type="radio" name="optradio" value="Good">Good
+                        </label>
+                        <label class="radio-inline rd">
+                            <input type="radio" name="optradio" value="Poor">Poor
+                        </label>*@
+                    </div>
+
+                    <div class="form-group">
+                        <label class=" text-large" for="Eexpectation">Expectation</label>
+                        <input class="form-control" type="text" name="Eexpectation" placeholder="Excellent / Good / Poor" />
+                        @*<label class="radio-inline rd">
+                            <input type="radio" name="optradio1" value="Excellent" checked>Excellent
+                        </label>
+                        <label class="radio-inline rd">
+                            <input type="radio" name="optradio1" value="Good">Good
+                        </label>
+                        <label class="radio-inline rd">
+                            <input type="radio" name="optradio1" value="Poor">Poor
+                        </label>*@
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class=" text-large" for="ImproveServices">Area of Imporvement</label>
+                        <textarea name="ImproveServices" class="form-control" placeholder="Area of Imporvement *" style="width: 100%; height: 150px;"></textarea>
+                        <br />
+                        <label class=" text-large" for="Comments">Comment</label>
+                        <textarea name="Comments" class="form-control" placeholder="Comment *" style="width: 100%; height: 150px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="CustomerId" value="@Context.Session.GetString("cID")" hidden />
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

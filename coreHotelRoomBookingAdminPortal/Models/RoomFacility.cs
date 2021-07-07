@@ -12,6 +12,7 @@ namespace coreHotelRoomBookingAdminPortal.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
+
         public int RoomFacilityId { get; set; }
         public bool IsAvilable { get; set; }
         public bool Wifi { get; set; }

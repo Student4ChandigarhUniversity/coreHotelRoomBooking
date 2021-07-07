@@ -1,0 +1,99 @@
+﻿@model IEnumerable<coreHotelRoomBookingUserPanel.Models.HotelRooms>
+@{@using Microsoft.AspNetCore.Http;
+ViewData["Title"] = "HotelRoomsIndex";
+Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<section class="jumbotron text-center">
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+
+                        <form>
+                            <div class="row no-margin">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Search Hotel</span>
+                                    @*<input class="form-control mr-sm-2" name="Search" id="Search" type="text" placeholder="Search" aria-label="Search">*@
+                                    <input name="Search" id="Search" class="form-control" type="text" value="@Context.Session.GetString("Search")">
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Check In</span>
+                                    <input class="form-control" type="date" name="CheckIn" id="CheckIn" value="@Context.Session.GetString("CheckIn")" required>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Check out</span>
+                                    <input class="form-control" type="date" name="CheckOut" id="CheckOut" value="@Context.Session.GetString("CheckOut")" required>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <span class="form-label">Guests</span>
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-group">
+                                    <br />
+                                    <button class="btn btn-success" asp-controller="Home" asp-action="Search">Check Availability</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<main role="main">
+
+    @*<section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Hotel Room Booking</h1>
+                <p class="lead text-muted">
+                    The management and booking of rooms in large buildings is a tedious and complicated task. The combination of different rooms with different sizes and equipment, the possibility to choose between different dates and times is the reason
+                    why a good booking system is needed to make this task as easy as possible
+                </p>
+            </div>
+        </section>*@
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                @foreach (var item in ViewBag.HotelRoomIndex)
+                {
+                    <!--Thumbnail Starts-->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="@item.RoomImage" class="bd-placeholder-img card-img-top image" />
+                            <div class="card-body">
+                                <p class="card-text">@item.RoomType</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" onclick="cartAlert()" class="btn btn-sm btn-outline-secondary">Book Now</a>
+                                        <a asp-controller="Home" asp-action="RoomsDetails" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">View Details</a>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Thumbnail Ends-->
+                }
+
+            </div>
+        </div>
+    </div>
+
+</main>

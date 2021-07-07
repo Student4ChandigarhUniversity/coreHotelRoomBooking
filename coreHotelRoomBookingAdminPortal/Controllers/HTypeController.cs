@@ -11,7 +11,7 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
     public class HTypeController : Controller
     {
         HotelAdminDbContext context;
-
+    
         public HTypeController(HotelAdminDbContext _context)
         {
             context = _context;
@@ -29,11 +29,17 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(HotelType e1)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind("HotelTypeName","HotelTypeDescription")] HotelType e1)
         {
-            context.HotelTypes.Add(e1);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                context.HotelTypes.Add(e1);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(e1);
+            
         }
         public ViewResult Details(int id)
         {
@@ -68,14 +74,19 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit( int id ,HotelType e1)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit( int id , [Bind("HotelTypeName", "HotelTypeDescription")] HotelType e1)
         {
-            HotelType hotelType = context.HotelTypes.Where(x => x.HotelTypeId == id).SingleOrDefault();
+            if (ModelState.IsValid)
+            {
+                HotelType hotelType = context.HotelTypes.Where(x => x.HotelTypeId == id).SingleOrDefault();
             hotelType.HotelTypeName = e1.HotelTypeName;
             hotelType.HotelTypeDescription = e1.HotelTypeDescription;
             //context.Entry(hotelType).CurrentValues.SetValues(e1);
             context.SaveChanges();
             return RedirectToAction("Index");
+            }
+            return View(e1);
         }
     }
 }

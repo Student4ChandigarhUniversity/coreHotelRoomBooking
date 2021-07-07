@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using coreHotelRoomBookingAdminPortal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,13 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
 
     public class AccountController : Controller
     {
+        HotelAdminDbContext context;
+
+        public AccountController(HotelAdminDbContext _context)
+        {
+            context = _context;
+        }
+
 
         [Route("")]
         [Route("index")]
@@ -46,6 +54,37 @@ namespace coreHotelRoomBookingAdminPortal.Controllers
         {
             HttpContext.Session.Remove("uname");
             return RedirectToAction("Index");
+        }
+
+
+        [Route("mylogin")]
+        [HttpPost]
+        public IActionResult MyLogin(string username, string password)
+        {
+            var user = context.UserDetails.Where(x => x.UserName == username).SingleOrDefault(); ;
+
+            if ( user == null)
+            {
+                ViewBag.Error = "Invalid Credentials";
+                return View("Index");
+            }
+            else
+            {
+                var userName = user.UserName ;
+                var passWord = user.UserPassword;
+                if (username != null && password != null && username.Equals(userName) && password.Equals(passWord))
+                {
+                    HttpContext.Session.SetString("uname", username);
+                    return View("Home");
+                }
+                else
+                {
+                    ViewBag.Error = "Invalid Credentials";
+                    return View("Index");
+                }
+            }
+
+            
         }
     }
 }

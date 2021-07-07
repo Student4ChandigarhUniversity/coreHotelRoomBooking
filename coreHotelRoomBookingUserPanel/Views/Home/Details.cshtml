@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h2><strong class="card-title">@ViewBag.Hotel.HotelName</strong></h2>
+<br />
+<div class="card mb-2" style="max-width: 800px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="@ViewBag.Hotel.HotelImage" class="card-img" alt="Hotel Image">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                
+                <p class="card-text">
+                    <table class="table table-hover table table-bordered">
+                        <tr>
+                            <th>
+                                Hotel Type
+                            </th>
+                            <td>
+                                @ViewBag.HotelType.HotelTypeName
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th>
+                                Hotel Address
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelAddress
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel District
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelDistrict
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel City
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelCity
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel State
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelState
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel Country
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelCountry
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel Email Id
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelEmailId
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel Rating
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelRating
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Contact Number
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelContactNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Hotel Description
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelDescription
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.Hotel.HotelId" class="btn btn-primary">Back to Home</a>
+</div>

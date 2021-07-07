@@ -1,0 +1,72 @@
+﻿@model coreHotelRoomBookingUserPanel.Models.HotelRooms
+
+@{
+    ViewData["Title"] = "HistoryDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>HistoryDetails</h2>
+
+@*<table class="table table-hover table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Room Id
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.HistoryDetails)
+        {
+            <tr>
+                <td>
+                    @item.RoomId
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    <a asp-controller="Booking" asp-action="historydetails" class="btn btn-primary">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var item in ViewBag.HotelRoom)
+            {
+                <!--Thumbnail Starts-->
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="@item.RoomImage" class="bd-placeholder-img card-img-top image" />
+
+
+                        <div class="card-body">
+                            <p class="card-text">@item.RoomType</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="Booking" asp-action="Buy" asp-route-id="@item.RoomId" onclick="cartAlert()" class="btn btn-sm btn-outline-secondary">Book Now</a>
+                                    <a asp-controller="Home" asp-action="RoomsDetails" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-secondary">View Details</a>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Thumbnail Ends-->
+            }
+
+        </div>
+    </div>
+</div>

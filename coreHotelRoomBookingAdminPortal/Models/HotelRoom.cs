@@ -9,9 +9,9 @@ namespace coreHotelRoomBookingAdminPortal.Models
 {
     public class HotelRoom
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int RoomId { get; set; }
         public string RoomType { get; set; }
         public int RoomPrice { get; set; }
@@ -22,7 +22,8 @@ namespace coreHotelRoomBookingAdminPortal.Models
         public int HotelId { get; set; }
 
         //Navigation Properties
-        public Hotel Hotel { get; set; }
+
         public RoomFacility RoomFacility { get; set; }
+        public virtual Hotel Hotel { get; set; }
     }
 }

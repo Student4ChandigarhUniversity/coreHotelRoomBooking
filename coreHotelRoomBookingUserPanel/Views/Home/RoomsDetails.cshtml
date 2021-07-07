@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "RoomsDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<h2><strong class="card-title">@ViewBag.HotelRoom.RoomType</strong></h2>
+<br />
+<div class="card mb-3" style="max-width: 800px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="@ViewBag.HotelRoom.RoomImage" class="card-img" alt="Room Image">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+
+                <p class="card-text">
+                    <table class="table table-hover table table-bordered">
+                        <tr>
+                            <th>
+                                Hotel Name
+                            </th>
+                            <td>
+                                @ViewBag.Hotel.HotelName
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Room Price
+                            </th>
+                            <td>
+                                @ViewBag.HotelRoom.RoomPrice
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Room Description
+                            </th>
+                            <td>
+                                @ViewBag.HotelRoom.RoomDescription
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Is Available
+                            </th>
+                            <td>
+                                @ViewBag.RoomFacilities.IsAvilable.ToString()
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                WiFi
+                            </th>
+                            <td>
+                                @ViewBag.RoomFacilities.Wifi.ToString()
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                E Kettle
+                            </th>
+                            <td>
+                                @ViewBag.RoomFacilities.Ekettle.ToString()
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Refrigerator
+                            </th>
+                            <td>
+                                @ViewBag.RoomFacilities.Refrigerator.ToString()
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Room Facility Description
+                            </th>
+                            <td>
+                                @ViewBag.RoomFacilities.RoomFacilityDescription
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a asp-controller="Booking" asp-action="Buy" asp-route-id="@ViewBag.HotelRoom.RoomId" onclick="cartAleart()" class="btn btn-primary">Add To Cart</a>
+    <br/>
+    <a asp-controller="Home" asp-action="HotelRoomsIndex" asp-route-id="@ViewBag.Hotel.HotelId" class="btn btn-primary">Back to Home</a>
+</div>
+
+

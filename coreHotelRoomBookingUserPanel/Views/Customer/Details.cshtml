@@ -1,0 +1,85 @@
+﻿@model coreHotelRoomBookingUserPanel.Models.Customers
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<table class="table table-hover table table-bordered">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerFirstName)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Last Name
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerLastName)
+        </td>
+    </tr>
+    <tr>
+
+        <th>
+            Customer Address
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Contact Number
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerContactNumber)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Email Id
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerEmailId)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            State
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.State)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Hotel Country
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Country)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Zip
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Zip)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Password
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CustomerPassword)
+        </td>
+    </tr>
+</table>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-controller="Customer">Update Profile</a>
+</div>
